@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Untitled Document</title>
+<style type="text/css">
+<!--
+body {
+	background-color: #333333;
+}
+.style1 {
+	font-size: 24px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+-->
+</style></head>
+
+<body>
+<script>
+<!--
+/*
+Background music script
+By JavaScript Kit (http://javascriptkit.com)
+Over 400+ free scripts here!
+*/
+
+//specify FULL path to midi
+var musicsrc="music.mp3"
+if (navigator.appName=="Microsoft Internet Explorer")
+document.write('<bgsound src='+'"'+musicsrc+'"'+' loop="infinite">')
+else 
+document.write('<embed src=\"'+musicsrc+'\" hidden="true" border="0" width="20" height="20" autostart="true" loop="true">')
+//-->
+</script>
+
+
+<div id="Layer1" style="position:absolute; left:446px; top:3px; width:762px; height:45px; z-index:1">
+  <p align="center" class="style1">
+  <script>
+//set style for NS4 to ''
+if (document.layers)
+var ns4def=''
+</script>
+
+<h2 id="flyin" style="position:relative;left:-800px;font-style:italic" style=&{ns4def};>Administración de centros de computo</h2>
+
+
+<script language="JavaScript1.2">
+
+
+if (document.getElementById||document.all)
+var crossheader=document.getElementById? document.getElementById("flyin").style : document.all.flyin.style
+
+function animatein(){
+if (parseInt(crossheader.left)<0)
+crossheader.left=parseInt(crossheader.left)+20+"px"
+else{
+crossheader.left=0
+crossheader.fontStyle="normal"
+clearInterval(start)
+}
+}
+
+if (document.getElementById||document.all)
+start=setInterval("animatein()",50)
+
+
+</script>
+
+
+
+  
+
+</div>
+<div id="Layer2" style="position:absolute; left:555px; top:58px; width:647px; height:30px; z-index:2">
+<b>
+
+<script>
+
+/*
+RAINBOW TEXT Script by Matt Hedgecoe (c) 2002
+Featured on JavaScript Kit
+For this script, visit http://www.javascriptkit.com
+*/
+
+// ********** MAKE YOUR CHANGES HERE
+
+var text="Reynaldo Gabino Paredes" // YOUR TEXT
+var speed=80 // SPEED OF FADE
+
+// ********** LEAVE THE NEXT BIT ALONE!
+
+
+if (document.all||document.getElementById){
+document.write('<span id="highlight">' + text + '</span>')
+var storetext=document.getElementById? document.getElementById("highlight") : document.all.highlight
+}
+else
+document.write(text)
+var hex=new Array("00","14","28","3C","50","64","78","8C","A0","B4","C8","DC","F0")
+var r=1
+var g=1
+var b=1
+var seq=1
+function changetext(){
+rainbow="#"+hex[r]+hex[g]+hex[b]
+storetext.style.color=rainbow
+}
+function change(){
+if (seq==6){
+b--
+if (b==0)
+seq=1
+}
+if (seq==5){
+r++
+if (r==12)
+seq=6
+}
+if (seq==4){
+g--
+if (g==0)
+seq=5
+}
+if (seq==3){
+b++
+if (b==12)
+seq=4
+}
+if (seq==2){
+r--
+if (r==0)
+seq=3
+}
+if (seq==1){
+g++
+if (g==12)
+seq=2
+}
+changetext()
+}
+function starteffect(){
+if (document.all||document.getElementById)
+flash=setInterval("change()",speed)
+}
+starteffect()
+</script>
+</b>
+
+
+</div>
+</body>
+</html>

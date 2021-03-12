@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+
+BODY{
+overflow-x:hidden;
+}
+
+.s1
+{
+  position  : absolute;
+  font-size : 10pt;
+  color     : blue;
+  visibility: hidden;
+}
+
+.s2
+{
+  position  : absolute;
+  font-size : 18pt;
+  color     : red;
+	visibility : hidden;
+}
+
+.s3
+{
+  position  : absolute;
+  font-size : 14pt;
+  color     : gold;
+	visibility : hidden;
+}
+
+.s4
+{
+  position  : absolute;
+  font-size : 12pt;
+  color     : lime;
+	visibility : hidden;
+}
+
+//-->
+</STYLE>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Untitled Document</title>
+<style type="text/css">
+<!--
+body,td,th {
+	color: #F0F0F0;
+}
+body {
+	background-color: #333333;
+}
+a {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+}
+a:visited {
+	color: #FFFFFF;
+}
+-->
+</style></head>
+
+<body>
+
+
+
+<style type="text/css">
+
+.glidetext{
+position: relative;
+/*Set initial position of your text. Make it just enough to hide the text from view:*/
+left: -500px;
+}
+
+</style>
+
+<script type="text/javascript">
+
+//Sequential fly-in text script- by JavaScriptKit.com
+//For this script and 400+ more, visit http://www.javascriptkit.com
+//This notice must stay intact for use
+
+var pausebetweenmsg=10 //customize pause in miliseconds between each message showing up (3000=3 seconds)
+var glidespeed=50 //customize glide speed in pixels per frame.
+
+var curobjindex=0
+
+function actualstyle(el, cssproperty){
+if (el.currentStyle)
+return el.currentStyle[cssproperty]
+else if (window.getComputedStyle){
+var elstyle=window.getComputedStyle(el, "")
+return elstyle.getPropertyValue(cssproperty)
+}
+}
+
+function collectElementbyClass(){
+var classname="glidetext"
+glidearray=new Array()
+var inc=0
+var alltags=document.all? document.all : document.getElementsByTagName("*")
+for (i=0; i<alltags.length; i++){
+if (alltags[i].className==classname)
+glidearray[inc++]=alltags[i]
+}
+if (glidearray.length>0)
+onebyoneglide()
+}
+
+function onebyoneglide(){
+if (curobjindex<glidearray.length)
+glidetimer=setInterval("glideroutine()",50)
+}
+
+function glideroutine(){
+if (parseInt(actualstyle(glidearray[curobjindex], "left"))<0)
+glidearray[curobjindex].style.left=parseInt(actualstyle(glidearray[curobjindex], "left"))+50+"px"
+else{
+glidearray[curobjindex].style.left=0
+curobjindex++
+clearInterval(glidetimer)
+setTimeout("onebyoneglide()", pausebetweenmsg)
+}
+}
+
+if (window.addEventListener)
+window.addEventListener("load", collectElementbyClass, false)
+else if (window.attachEvent)
+window.attachEvent("onload", collectElementbyClass)
+else if (document.getElementById)
+window.onload=collectElementbyClass
+
+</script>
+
+<p><strong><a href="software.htm" target="mainFrame">
+<p class="glidetext">Presupuesto Software</p>
+</a></strong></p>
+<p><strong><a href="hardware.htm" target="mainFrame">
+<p class="glidetext">Presupuesto hardware</p>
+</a></strong></p>
+<p><strong><a href="laps.htm" target="mainFrame">
+<p class="glidetext">Inventario</p>
+</a></strong></p>
+<p><strong><a href="plano2d.png" target="mainFrame">
+<p class="glidetext">Plano 2D</p>
+</a></strong></p>
+<p><strong><a href="plano3d.mp4" target="mainFrame">
+<p class="glidetext">Plano 3D</p>
+</a></strong></p>
+
+
+<DIV ID="div1" CLASS="s1">*</DIV>
+<DIV ID="div2" CLASS="s2">*</DIV>
+<DIV ID="div3" CLASS="s3">*</DIV>
+<DIV ID="div4" CLASS="s4">*</DIV>
+
+<p align="center"><font face="arial" size="-2">Todos los derechos reservados 2021</font><br>
+<font face="arial, helvetica" size="-2">UCAD
+</font></p>
+
+<SCRIPT LANGUAGE="javascript" TYPE="text/javascript">
+
+/*
+Script by Mike McGrath- http://website.lineone.net/~mike_mcgrath
+Featured on JavaScript Kit (http://javascriptkit.com)
+For this and over 400+ free scripts, visit http://javascriptkit.com
+*/
+
+//Updated Feb 20th, 08 by JavaScriptKit.com: Script now compatible in IE7/FF 
+
+var standardbody=(document.compatMode=="CSS1Compat")? document.documentElement : document.body //create reference to common "body" across doctypes
+
+var nav = (!document.all || window.opera);
+var tmr = null;
+var spd = 50;
+var x = 0;
+var x_offset = 5;
+var y = 0;
+var y_offset = 15;
+
+document.onmousemove = get_mouse; 
+
+function get_mouse(e)
+{    
+  x = (nav) ? e.pageX : event.clientX+standardbody.scrollLeft;
+  y = (nav) ? e.pageY : event.clientY+standardbody.scrollTop;
+  x += x_offset;
+  y += y_offset;
+  beam(1);     
+}
+
+function beam(n)
+{
+  if(n<5)
+  {
+				document.getElementById('div'+n).style.top=y+'px'
+				document.getElementById('div'+n).style.left=x+'px'
+				document.getElementById('div'+n).style.visibility='visible'
+    n++;
+    tmr=setTimeout("beam("+n+")",spd);
+  }
+  else
+  {
+     clearTimeout(tmr);
+     fade(4);
+  }   
+} 
+
+function fade(n)
+{
+  if(n>0) 
+  {
+				document.getElementById('div'+n).style.visibility='hidden'
+    n--;
+    tmr=setTimeout("fade("+n+")",spd);
+  }
+  else clearTimeout(tmr);
+} 
+
+// -->
+</SCRIPT>
+
+</body>
+</html>
